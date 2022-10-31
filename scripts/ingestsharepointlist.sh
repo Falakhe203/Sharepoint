@@ -33,11 +33,8 @@ if [ ${RESULT} -gt 0 ]; then
 fi
 
 
-#XML_FILE_PATH=/bigdatahdfs/datalake/raw/opex/landing/gcms/XMLFile/${FEED}_${CURRENT_YEAR}${CURRENT_MONTH}${CURRENT_DAY}.xml
-#CSV_FILE_PATH=/bigdatahdfs/datalake/raw/opex/sharepoint/gcms/CSVFile/${CURRENT_YEAR}/${CURRENT_MONTH}/${CURRENT_DAY}/v${VERSION}/${FEED}_${CURRENT_YEAR}${CURRENT_MONTH}${CURRENT_DAY}.csv
 XML_FILE_PATH=/bigdatahdfs/datalake/raw/opex/landing/gcms/XMLFile/${FEED}_${CURRENT_YEAR}${CURRENT_MONTH}${CURRENT_DAY}.xml
 CSV_FILE_PATH=/bigdatahdfs/datalake/raw/opex/sharepoint/gcms/CSVFile/${CURRENT_YEAR}/${CURRENT_MONTH}/${CURRENT_DAY}/${FEED}_${CURRENT_YEAR}${CURRENT_MONTH}${CURRENT_DAY}.csv
-#PARQUET_FILE_PATH=/bigdatahdfs/datalake/publish/opex/sharepoint/gcms/ParquetFile/enceladus_info_date=${CURRENT_DATE}
 PARQUET_FILE_PATH=/bigdatahdfs/datalake/publish/opex/sharepoint/gcms/ParquetFile/year=${CURRENT_YEAR}/month=${CURRENT_MONTH}/day=${CURRENT_DAY}
 STYLESHEET=/bigdata/datalake/opex/app/config/sharepoint/${FEED}_StyleSheet.xsl
 TABLE_NAME="dl_myopex.t_sharepoint_${FEEDS,,}_d"
