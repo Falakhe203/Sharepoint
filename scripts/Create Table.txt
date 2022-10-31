@@ -1,0 +1,32 @@
+CREATE EXTERNAL TABLE `dl_myopex.t_sharepoint_gcms_d`(
+  `Reporting_Date` string, 
+  `GL_Account` string, 
+  `Cost_Centre` string, 
+  `Recon_Amount` string, 
+  `Comment` string,
+  `Username` string,
+  `Date_Created` string)
+PARTITIONED BY ( 
+  `report_date` date)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 
+  '/bigdatahdfs/datalake/publish/opex/sharepoint/gcms/myopex_table/ParquetFile';
+    
+  
+
+
+
+
+
+
+msck repair table dl_myopex.t_plex_journals_m;
+
+
+alter table dl_myopex.t_plex_journals_m
+add partition (year=2022,month=8,day=1)
+location '/bigdatahdfs/datalake/publish/opex/year=2022/month=8/day=1';
